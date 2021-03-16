@@ -1,0 +1,98 @@
+This folder will serve as the guideline/walkthrough for this project.
+
+About the project,
+------------------
+This project is mainly a website for a consultancy firm that deals with Electrical Consultation for small
+and large projects.
+This website will also be used to develop a comprehensive software for the construction/consultation industry.
+
+The Website will have the following apps,
+1 - Main page/ Landing Page app which will have all the about us and team and contact form.
+2 - Projects Page with an index view of all the projects and detailed views of every project when selected.
+3 - Beginnings of the consultation software.
+4 - Maybe a blog related to Engineering.
+5 - Customer Relationship Manager software based on Django.
+
+This project will be based on Django and styling will be done via Bootstrap.
+Virtual Environment for this project --> djangoml
+
+From the start again,
+    > conda activate djangoml
+    > django-admin startproject se_consultants
+    > cd se_consultants
+    > python manage.py runserver
+    > python manage.py startapp homepage
+
+HOMEPAGE:
+=------->
+Now we will design the homepage/mainpage/landing page with the required html files.
+The database for this app will contain, the messages that will be received via the page.
+
+    ~ Create and edit homepage/views.py to include the views.
+    ~ Create and edit homepage/urls.py to include the url of the the view you just created.
+    ~ Edit se_consultants/urls.py to include our app into that.
+
+Now we will be creating models for our contact page basically which will have the following fields.
+    - Name
+    - Contact No.
+    - Email
+    - Message
+
+Now we need to tell our project that this homepage is installed.
+We will do this by editing INSTALLED_APPS list present in se_consultants/settings.py and add,
+    ~ homepage.apps.HomepageConfig.
+
+Now we will make the migrations and then migrate.
+makemigrations command is used to tell Django that we have made some changes to MODELS.
+    > python manage.py makemigrations homepage.
+Check your new schema,
+    > python manage.py sqlmigrate homepage 0001
+Check your app via,
+    > python manage.py check
+And now run the following command to create those tables in your database.
+    > python manage.py migrate
+
+Now always remember the three steps while making model changes,
+    * Change your models. (in models.py)
+    * Run --> python manage.py makemigrations (to create migrations for those changes.)
+    * Run --> python manage.py migrate (to apply those changes.)
+
+Now we will make our form.
+
+
+COLORS:
+Main colors to be used at our own discretion,
+rgb(240, 8, 8) --> A form of Red.
+#323638 ---------> A form of grey.
+#111 ------------> A form of black.
+background: rgb(243, 242, 203);
+
+Now we will make another app named 'Projects' which will showcase all of the projects that are or have been
+worked upon.
+The model will have the following parameters.
+
+- Name of Project
+- Name of client
+- Work type
+- Completion status
+- picture
+Add the projects using the Django shell,
+
+To access the Django shell, use,
+
+"""
+    > python manage.py shell
+"""
+
+Following is a list of command used in the shell,
+    :::>><<:::
+    > from projects.models import Projects
+    > p1 = Projects(
+    ... project_name='My First Project',
+    ... client='A web development Project',
+    ... work_type='Django',
+    ... completion_status='Unconfirmed',
+    ... project_banner='images/project1.png'
+    ... )
+    > p1.save()
+    :::>><<:::

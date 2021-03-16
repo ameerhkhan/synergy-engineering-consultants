@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% load static %} {% block page_content %}
+<link rel="stylesheet" type="text/css" href="{% static 'index/styles.css' %}">
+
+<title>Synergy Engineering Consultants | Projects</title>
+<div class="banenr">
+    <img src="{% static 'projects/images/projects_cover.jpg' %}">
+    <div class="content">
+        <h2>Our Projects</h2>
+        <p>Following are the projects we completed in our professional capacity</p>
+    </div>
+</div>
+<br>
+<br> {% if all_projects %}
+<div class="row">
+    {% for project in all_projects %}
+    <!-- NOW GET A CARD FOR HERE -->
+    <div class="card hover">
+        <!-- The fucking mistake was here!!! -->
+        <a class="hover" href="{% url 'projects:details' project.id %}">
+            <div class="card-img" style="background-image: url('{% static project.project_banner %}');">
+                <div class="overlay">
+                    <div class="overlay-content">
+                        <!-- <a class="hover" href="#!">View Product</a> -->
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <div class="card-content">
+            <a href="#!">
+                <h2>{{ project.project_name }}</h2>
+                <p>{{ project.client }}</p>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No projects to display at the moment..</p>
+{% endif %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'index/script.js' %}"></script>
+
+{% endblock %}
+
+
+<!-- Extra code --- Dekh kr delete krdena, -->
