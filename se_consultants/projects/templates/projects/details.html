@@ -1,12 +1,12 @@
 {% extends "base.html" %} {% load static %} {% block page_content %}
 <link rel="stylesheet" type="text/css" href="{% static 'details/styles.css' %}">
-<title>Synergy Engineering Consultants | {{ project.project_name }}</title>
-<header class="parallax" style="background-image: url('{% static project.project_banner %}');">
+<title>Synergy Engineering Consultants | {{ projects.project_name }}</title>
+<header class="parallax" style="background-image: url('{% static projects.project_banner %}');">
     <div class="overlay"></div>
     <div class="container">
         <div class="description ">
             <h1>
-                Synergy Engineering Consultants | {{ project.project_name }}
+                Synergy Engineering Consultants
                 <!-- <p>{{ product.product_description }}</p> -->
                 <!-- <button class="btn btn-outline-secondary btn-lg">See more</button> -->
             </h1>
@@ -17,21 +17,21 @@
 <!-- About the product -->
 <div class="about" id="about">
     <div class="container">
-        <h1 class="text-center">Details for {{ project.project_name }}</h1>
+        <h1 class="text-center">Details for {{ projects.project_name }}</h1>
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12">
-                <img src="{% static project.project_banner %}" class="img-fluid">
+            <!-- <div class="col-lg-4 col-md-4 col-sm-12">
+                <img src="{% static projects.project_banner %}" class="img-fluid">
                 <span class="text-center"></span>
-            </div>
+            </div> -->
             <div class="col-lg-8 col-md-8 col-sm-12 desc">
                 <!-- <h3></h3> -->
-                <p>Client Name: {{ project.client }}</p>
-                <p>Service: {{ project.work_type }}</p>
-                <p>Completion Status: {{ project.completion_status }}</p>
-                <h3>Brief Description:</h3>
+                <p>Client Name: {{ projects.client }}</p>
+                <p>Service: {{ projects.work_type }}</p>
+                <p>Completion Status: {{ projects.completion_status }}</p>
+                <!-- <h3>Brief Description:</h3>
                 <p>
-                    {{ project.project_description }}
-                </p>
+                    {{ projects.project_description }}
+                </p> -->
             </div>
         </div>
     </div>

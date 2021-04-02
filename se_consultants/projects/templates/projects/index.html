@@ -2,8 +2,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'index/styles.css' %}">
 
 <title>Synergy Engineering Consultants | Projects</title>
-<div class="banenr">
-    <img src="{% static 'projects/images/projects_cover.jpg' %}">
+<div class="banner">
+    <img src="{% static 'images/projects_cover.jpg' %}">
     <div class="content">
         <h2>Our Projects</h2>
         <p>Following are the projects we completed in our professional capacity</p>
@@ -21,15 +21,17 @@
                 <div class="overlay">
                     <div class="overlay-content">
                         <!-- <a class="hover" href="#!">View Product</a> -->
+                        <!-- <p class="text">How's this?</p> -->
                     </div>
                 </div>
             </div>
         </a>
 
         <div class="card-content">
-            <a href="#!">
+            <a href="{% url 'projects:details' project.id %}">
                 <h2>{{ project.project_name }}</h2>
                 <p>{{ project.client }}</p>
+                <p>{{ project.completion_status }}</p>
             </a>
         </div>
     </div>

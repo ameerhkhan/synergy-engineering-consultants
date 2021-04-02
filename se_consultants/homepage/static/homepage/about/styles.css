@@ -67,7 +67,7 @@ html {
 
 .description h1 {
     color: rgb(240, 5, 36);
-    overflow: auto;
+    overflow: hidden;
     display: inline-block;
 }
 

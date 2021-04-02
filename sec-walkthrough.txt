@@ -96,3 +96,9 @@ Following is a list of command used in the shell,
     ... )
     > p1.save()
     :::>><<:::
+
+Now things left to do,
+- Projects page css to match the theme. x
+- Projects detail page finishing. x
+- Footer finishing. x
+
